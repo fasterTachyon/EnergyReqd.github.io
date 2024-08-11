@@ -81,7 +81,6 @@
                 let energyStore = gender=='M'?Number(weight*24):Number(weight*20);
                 let shortfall = CarbEnergyReqd - energyStore;
                 let hourly = shortfall / time;
-            console.log(CarbEnergyReqd, energyStore)
 
                 if (hourly) {
                     if(hourly>0){
