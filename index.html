@@ -19,21 +19,10 @@
             </p>
             <input id="Weight" type="number" placeholder="Weight (in KG)" class="p-3 rounded-xl col-span-1 input" />
             <p class="font-bold pl-1 text-xl col-span-1 ">Gender</p>
-            <div class="flex justify-between md:justify-evenly">
-                <div class="flex flex-col justify-center">
-                    <input id="Male" type="radio" name="gender" value="male" class="p-3 rounded-xl col-span-1 input" />
-                    <label htmlFor="" class=" font-bold">
-                        Male
-                    </label>
-                </div>
-                <div class="flex flex-col justify-center">
-                    <input id="Female" type="radio" name="gender" value="female"
-                        class="p-3 rounded-xl col-span-1 input" />
-                    <label htmlFor="" class=" font-bold">
-                        Female
-                    </label>
-                </div>
-            </div>
+            <select name="Gender" class="p-3 rounded-xl" id="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
             <p class="font-bold pl-1 text-xl col-span-1 ">Distance</p>
             <!-- <input id="Distance" type="number" placeholder="42.2, 21.1, etc." class="p-3 rounded-xl col-span-1 input" /> -->
              <select name="Distance" id="Distance" class="p-3 rounded-xl">
@@ -74,8 +63,8 @@
         function calculate(){
             const distance =
             document.getElementById("Distance").value;
-            const male = document.getElementById("Male").checked;
-                const Elevation = document.getElementById("Elevation").value;
+            const gender = document.getElementById("Gender").value;
+            const Elevation = document.getElementById("Elevation").value;
                 const weight = document.getElementById("Weight").value;
                 const hours = document.getElementById("Hours").value;
                 const minutes =
@@ -89,16 +78,27 @@
                     parseFloat(seconds);
 
                 let CarbEnergyReqd = 0.9 * (weight * (Number(distance)+(Elevation/100)));
-                let energyStore = male?weight*24:weight*20;
+                let energyStore = gender=='M'?Number(weight*24):Number(weight*20);
                 let shortfall = CarbEnergyReqd - energyStore;
                 let hourly = shortfall / time;
+            console.log(CarbEnergyReqd, energyStore)
 
                 if (hourly) {
-                    document.querySelectorAll(".input").forEach((e) => {
-                        e.style.border = "1px solid #000000";
-                    });
-                    document.getElementById("Result").innerHTML =
+                    if(hourly>0){
+
+                        document.querySelectorAll(".input").forEach((e) => {
+                            e.style.border = "1px solid #000000";
+                        });
+                        document.getElementById("Result").innerHTML =
                         hourly.toFixed(2) + " Calories Per Hour";
+                    }
+                    else{
+                        document.querySelectorAll(".input").forEach((e) => {
+                            e.style.border = "1px solid #000000";
+                        });
+                        document.getElementById("Result").innerHTML =
+                            "No External Energy Required";
+                    }
                 } else {
                     document.getElementById("Result").innerHTML =
                         "Please Enter valid details";
