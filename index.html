@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>ActivNRG Energy Calculator</title>
+    <title>ActivNRG Race Energy Calculator</title>
 </head>
 <body>
     <div>
@@ -39,23 +39,23 @@
              <select name="Distance" id="Distance" class="p-3 rounded-xl">
                 <option value="5">5 Km</option>
                 <option value="10">10 Km</option>
-                <option value="21.1">21 Km</option>
-                <option value="42.2">42 Km</option>
+                <option value="21.1">21.1 Km</option>
+                <option value="42.2">42.2 Km</option>
                 <option value="50">50 Km</option>
                 <option value="100">100 Km</option>
                 <option value="161">100 Mile</option>
              </select>
             <p class="font-bold p-1 text-xl col-span-1 ">
-                Net Elevation Gain
+                Net Elevation Gain (In Meters)
             </p>
             <input id="Elevation" type="number" placeholder="In meters" class="p-3 rounded-xl col-span-1 input" />
              <p class="font-bold pl-1 text-xl col-span-1 ">
                 Estimated Finish Time
             </p>
             <div class="flex col-span-1 gap-2 flex-col md:flex-row">
-                <input id="Hours" type="number" placeholder="HH" class="text-center md:w-[30%] rounded-xl md:p-3 p-1 input" />
-                <input id="Minutes" type="number" placeholder="MM" class="text-center md:w-[35%] rounded-xl p-1 input" />
-                <input id="Seconds" type="number" placeholder="SS" class="text-center md:w-[35%] rounded-xl p-1 input" />
+                <input id="Hours" type="number" placeholder="HH" class="text-center md:w-[33%] rounded-xl md:p-3 p-1 input" />
+                <input id="Minutes" type="number" placeholder="MM" class="text-center md:w-[33%] rounded-xl p-1 input" />
+                <input id="Seconds" type="number" placeholder="SS" class="text-center md:w-[33%] rounded-xl p-1 input" />
             </div>
         </div>
         <div class="flex justify-center bg-gray-400 pb-5 gap-20 px-24">
@@ -63,7 +63,7 @@
                 >
                 Calculate
             </button>
-            <p id="Result" class="text-center font-bold text-2xl underline underline-offset-4">
+            <p id="Result" class="text-center font-bold text-2xl underline underline-offset-4 text-mono">
                 Energy required per hour    
             </p>
         </div>
