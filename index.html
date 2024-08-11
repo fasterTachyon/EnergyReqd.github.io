@@ -44,17 +44,15 @@
                 <input id="Seconds" type="number" placeholder="SS" class="text-center md:w-[33%] rounded-xl p-1 input" />
             </div>
         </div>
-        <div class="flex justify-center bg-gray-400 pb-5 gap-20 px-24">
+        <div class="flex justify-center bg-gray-400 pb-5 gap-3 items-center flex-col">
+            <p id="Result" class="text-center font-bold text-xl text-mono">
+                Energy required per hour    
+            </p>
             <button id="Click" class="bg-blue-600 text-white w-32 h-10 text-lg font-mono rounded-xl md:p-0 px-2 text-center" onClick="calculate()"
                 >
                 Calculate
             </button>
-            <p id="Result" class="text-center font-bold text-2xl underline underline-offset-4 text-mono">
-                Energy required per hour    
-            </p>
         </div>
-    
-        <div class="m-24 justify-center items-center bg-blue-100"></div>
     </div>
     <script>
         function calculate(){
@@ -93,7 +91,7 @@ console.log(CarbEnergyReqd, energyStore)
                             e.style.border = "1px solid #000000";
                         });
                         document.getElementById("Result").innerHTML =
-                            "No External Energy Required";
+                            "Energy Intake during Race is Optional if adequately Carb Loaded";
                     }
                 } else {
                     document.getElementById("Result").innerHTML =
