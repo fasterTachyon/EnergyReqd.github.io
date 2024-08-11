@@ -26,13 +26,10 @@
             <p class="font-bold pl-1 text-xl col-span-1 ">Distance</p>
             <!-- <input id="Distance" type="number" placeholder="42.2, 21.1, etc." class="p-3 rounded-xl col-span-1 input" /> -->
              <select name="Distance" id="Distance" class="p-3 rounded-xl">
-                <option value="5">5 Km</option>
-                <option value="10">10 Km</option>
                 <option value="21.1">21.1 Km</option>
                 <option value="42.2">42.2 Km</option>
                 <option value="50">50 Km</option>
                 <option value="100">100 Km</option>
-                <option value="161">100 Mile</option>
              </select>
             <p class="font-bold p-1 text-xl col-span-1 ">
                 Net Elevation Gain (In Meters)
@@ -77,11 +74,11 @@
                     parseFloat(minutes) +
                     parseFloat(seconds);
 
-                let CarbEnergyReqd = 0.9 * (weight * (Number(distance)+(Elevation/100)));
+                let CarbEnergyReqd = 0.9 * (weight * (Number(distance)));
                 let energyStore = gender=='M'?Number(weight*24):Number(weight*20);
                 let shortfall = CarbEnergyReqd - energyStore;
                 let hourly = shortfall / time;
-
+console.log(CarbEnergyReqd, energyStore)
                 if (hourly) {
                     if(hourly>0){
 
