@@ -72,7 +72,7 @@
                     parseFloat(minutes) +
                     parseFloat(seconds);
 
-                let CarbEnergyReqd = 0.9 * (weight * (Number(distance)));
+                let CarbEnergyReqd = 0.9 * (weight * (Number(distance)+Number(Elevation/100)));
                 let energyStore = gender=='M'?Number(weight*24):Number(weight*20);
                 let shortfall = CarbEnergyReqd - energyStore;
                 let hourly = shortfall / time;
